@@ -4,7 +4,7 @@ import Article from "./article";
 import { NOS_ENDPOINTS } from "./enums/nos-endpoints";
 
 export default class JsonResponse {
-    private data = [];
+    private declare data: object | [];
     private endpoint: string;
     private fileName: string;
     private date: Date;
@@ -17,6 +17,10 @@ export default class JsonResponse {
 
     setData(data: Article[]) {
         this.data = data.map((item) => item.toJson()) as [];
+    }
+
+    setDataAsJson(data: object | []) {
+        this.data = data;
     }
 
     toFile() {

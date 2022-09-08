@@ -3,5 +3,11 @@ import Scraper from "./scraper";
 
 const scraper = new Scraper();
 
-scraper.run(NOS_ENDPOINTS.ALGEMEEN, "algemeen");
-scraper.run(NOS_ENDPOINTS.BINNENLAND, "binnenland");
+Object.entries(NOS_ENDPOINTS).forEach((item) => {
+    const name = item[0];
+    const endpoint = item[1];
+
+    scraper.run(endpoint, name);
+});
+
+scraper.createIndexFile();

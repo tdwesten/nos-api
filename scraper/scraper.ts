@@ -5,7 +5,7 @@ import Article from "./article";
 import JsonResponse from "./json-response";
 
 export default class Scraper {
-    async run(endpoint: NOS_ENDPOINTS, name: string) {
+    async run(endpoint: string, name: string) {
         const url = new URL(endpoint);
         const request = new Request(url);
         const body = await request.makeRequest();
@@ -13,6 +13,24 @@ export default class Scraper {
 
         const file = new JsonResponse(name);
         file.setData(articles);
+        file.toFile();
+    }
+
+    createIndexFile() {
+        const file = new JsonResponse("index");
+
+        const contents: any = [];
+
+        Object.entries(NOS_ENDPOINTS).forEach((item) => {
+            const endpoint = item[0];
+            const url = `https://tdwesten.github.io/nos-api/data/${endpoint}.json`;
+            contents.push({
+                name: endpoint,
+                url: url,
+            });
+        });
+
+        file.setDataAsJson(contents);
         file.toFile();
     }
 
