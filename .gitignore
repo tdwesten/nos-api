@@ -1,2 +1,2 @@
 scraper/node_modules/*
-data/*
+data/*.json
