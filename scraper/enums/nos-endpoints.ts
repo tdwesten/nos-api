@@ -1,7 +1,7 @@
 export enum NOS_ENDPOINTS {
     algemeen = "https://nos.nl/nieuws/archief",
     binnenland = "https://nos.nl/nieuws/binnenland/archief",
-    buitenland = "https://nos.nl/nieuws/buitenland",
+    buitenland = "https://nos.nl/nieuws/buitenland/archief",
     regio = "https://nos.nl/nieuws/regio/archief",
     politiek = "https://nos.nl/nieuws/politiek/archief",
     economie = "https://nos.nl/nieuws/economie/archief",
