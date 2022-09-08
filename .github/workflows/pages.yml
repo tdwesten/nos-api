@@ -37,7 +37,7 @@ jobs:
       - name: Install deps
         run: yarn install --silent
       - name: Generate JSON API
-        run: yarn run dev
+        run: cd scraper && yarn run dev
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
