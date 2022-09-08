@@ -1,3 +1,5 @@
+[![Generate API and deploy to Pages](https://github.com/tdwesten/nos-api/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/tdwesten/nos-api/actions/workflows/pages.yml)
+
 # nos-api
 
 Attempt to use Github Actions &amp; Github Pages for a building a static json api of nos.nl (headlines only)...
