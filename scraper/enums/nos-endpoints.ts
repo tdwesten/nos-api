@@ -1,3 +1,6 @@
+/**
+ * All NOS.NL /archief endpoints
+ */
 export enum NOS_ENDPOINTS {
     algemeen = "https://nos.nl/nieuws/archief",
     binnenland = "https://nos.nl/nieuws/binnenland/archief",

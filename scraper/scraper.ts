@@ -5,6 +5,12 @@ import Article from "./article";
 import JsonResponse from "./json-response";
 
 export default class Scraper {
+    /**
+     * Run scraper
+     *
+     * @param endpoint
+     * @param name
+     */
     async run(endpoint: string, name: string) {
         const url = new URL(endpoint);
         const request = new Request(url);
@@ -16,6 +22,10 @@ export default class Scraper {
         file.toFile();
     }
 
+    /**
+     * Create data/index.json file based on NOS_ENDPOINTS
+     *
+     */
     createIndexFile() {
         const file = new JsonResponse("index");
 
@@ -34,7 +44,13 @@ export default class Scraper {
         file.toFile();
     }
 
-    getArticles(html: string) {
+    /**
+     * Scrape articles from HTML
+     *
+     * @param html
+     * @returns Article[]
+     */
+    getArticles(html: string): Article[] {
         const $ = cheerio.load(html);
         const articlesHtml = $("html body #archief > ul > li");
         const articles: Article[] = [];
@@ -52,11 +68,23 @@ export default class Scraper {
         return articles;
     }
 
+    /**
+     * Extract title
+     *
+     * @param element
+     * @returns string
+     */
     extractTitle(element: any): string {
         const $ = cheerio.load(element);
         return $(element).children("a").children(".list-time__title").text();
     }
 
+    /**
+     * Extract url
+     *
+     * @param element
+     * @returns URL
+     */
     extractUrl(element: any): URL {
         const $ = cheerio.load(element);
         const url = $(element).children("a").attr("href");
@@ -64,6 +92,12 @@ export default class Scraper {
         return new URL(`https://nos.nl${url}`);
     }
 
+    /**
+     * Extract Date
+     *
+     * @param element
+     * @returns Date
+     */
     extractDate(element: any): Date {
         const $ = cheerio.load(element);
         const date = $(element)

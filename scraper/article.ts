@@ -9,6 +9,11 @@ export default class Article {
         this.date = date;
     }
 
+    /**
+     * Transform to a plain object
+     *
+     * @returns object
+     */
     toJson() {
         return {
             title: this.title,

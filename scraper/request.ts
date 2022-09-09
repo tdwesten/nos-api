@@ -8,6 +8,8 @@ export default class Request {
     }
 
     /**
+     * Make a request
+     *
      * @returns Promise
      */
     async makeRequest(): Promise<string> {
