@@ -18,7 +18,11 @@ export default class Article {
         return {
             title: this.title,
             url: this.url.toString(),
-            date: this.date.toString(),
+            date: this.date.toJSON(),
+            date_formatted: this.date.toLocaleString("nl-NL", {
+                timeZone: "Europe/Amsterdam",
+            }),
+            unix_timestamp: Math.floor(this.date.getTime() / 1000),
         };
     }
 }
