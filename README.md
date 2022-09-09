@@ -6,7 +6,7 @@ This is a attempt to use Github Actions &amp; Github Pages for a building a stat
 
 ## Endpoints
 
-
+- Index: https://tdwesten.github.io/nos-api/data/index.json
 - Algemeen: https://tdwesten.github.io/nos-api/data/algemeen.json
 - Binnenland: https://tdwesten.github.io/nos-api/data/binnenland.json
 - Buitenland: https://tdwesten.github.io/nos-api/data/buitenland.json
